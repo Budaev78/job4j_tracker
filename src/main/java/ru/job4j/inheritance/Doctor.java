@@ -18,4 +18,8 @@ public class Doctor extends Profession{
         super.printInfo();
         System.out.println("Я доктор " + getHeal());
     }
+
+    public Diagnosis heal(Patient patient) {
+        return new Diagnosis();
+    }
 }
