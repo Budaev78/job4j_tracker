@@ -6,7 +6,9 @@ public class StartUI {
 
     public static void main(String[] args) {
         Tracker application = new Tracker();
-        application.add(new Item(1, "Car"));
+        Item car = new Item();
+        car.setName("Car");
+        application.add(car);
         System.out.println(Arrays.toString(application.findByName("Car")));
 
     }
