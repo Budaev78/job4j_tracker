@@ -26,12 +26,12 @@ public class Tracker {
         Item[] itemsByName = new Item[items.length];
         int count = 0;
         for (int i = 0; i < size; i++) {
-            if(items[i].getName().equals(key)) {
+            if (items[i].getName().equals(key)) {
                 itemsByName[count] = items[i];
                 count++;
             }
         }
-        return Arrays.copyOf(itemsByName,count);
+        return Arrays.copyOf(itemsByName, count);
     }
 
     private int indexOf(int id) {
@@ -56,12 +56,12 @@ public class Tracker {
 
     public boolean delete(int id) {
         int index = indexOf(id);
-        if(index != -1) {
-            System.arraycopy(items, index + 1,items, index, size - index);
+        boolean rsl = index != -1;
+        if (rsl) {
+            System.arraycopy(items, index + 1, items, index, size - index);
             items[size - 1] = null;
             size--;
-            return true;
         }
-        return false;
+        return rsl;
     }
 }
