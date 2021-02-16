@@ -5,11 +5,11 @@ import java.util.Arrays;
 public class StartUI {
 
     public static void main(String[] args) {
-        Tracker application = new Tracker();
+        Tracker tracker = new Tracker();
         Item car = new Item();
         car.setName("Car");
-        application.add(car);
-        System.out.println(Arrays.toString(application.findByName("Car")));
+        tracker.add(car);
+        System.out.println(car.toString());
 
     }
 }
