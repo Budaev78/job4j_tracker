@@ -25,7 +25,7 @@ public class StartUI {
                 }
             } else if (select == 2) {
                 System.out.println("Enter the application number: ");
-                int id = scanner.nextInt();
+                int id = Integer.valueOf(scanner.nextLine());
                 System.out.println("Enter a new application name: ");
                 String name = scanner.nextLine();
                 Item newItem = new Item(name);
@@ -37,7 +37,7 @@ public class StartUI {
                 }
             } else if (select == 3) {
                 System.out.println("Enter the application number: ");
-                int id = scanner.nextInt();
+                int id = Integer.valueOf(scanner.nextLine());
                 tracker.delete(id);
                 if (tracker.delete(id)) {
                     System.out.println("The application has been successfully deleted");
@@ -46,7 +46,7 @@ public class StartUI {
                 }
             } else if (select == 4) {
                 System.out.println("Enter the application number: ");
-                int id = scanner.nextInt();
+                int id = Integer.valueOf(scanner.nextLine());
                 Item item = tracker.findById(id);
                 if (item != null) {
                     System.out.println(item);
