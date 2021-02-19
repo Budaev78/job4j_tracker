@@ -21,7 +21,7 @@ public class StartUI {
     }
 
     public static void replaceItem(Input input, Tracker tracker) {
-        int id = Integer.valueOf(input.askStr("Enter the application number: "));
+        int id = input.askInt("Enter the application number: ");
         String name = input.askStr("Enter a new application name: ");
         Item newItem = new Item(name);
         if (tracker.replace(id, newItem)) {
@@ -32,7 +32,7 @@ public class StartUI {
     }
 
     public static void deleteItem(Input input, Tracker tracker) {
-        int id = Integer.valueOf(input.askStr("Enter the application number: "));
+        int id = input.askInt("Enter the application number: ");
         if (tracker.delete(id)) {
             System.out.println("The application has been successfully deleted");
         } else {
@@ -41,7 +41,7 @@ public class StartUI {
     }
 
     public static void findIdItem(Input input, Tracker tracker) {
-        int id = Integer.valueOf(input.askStr("Enter the application number: "));
+        int id = input.askInt("Enter the application number: ");
         Item item = tracker.findById(id);
         if (item != null) {
             System.out.println(item);
@@ -67,7 +67,7 @@ public class StartUI {
         boolean run = true;
         while (run) {
             this.showMenu();
-            int select = Integer.valueOf(input.askStr("Select: "));
+            int select = input.askInt("Select: ");
             if (select == 0) {
                 StartUI.createItem(input, tracker);
             } else if (select == 1) {
