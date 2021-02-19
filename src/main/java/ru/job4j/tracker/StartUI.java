@@ -24,8 +24,7 @@ public class StartUI {
         int id = Integer.valueOf(input.askStr("Enter the application number: "));
         String name = input.askStr("Enter a new application name: ");
         Item newItem = new Item(name);
-        Item rep = tracker.replace(id, newItem);
-        if (rep != null) {
+        if (tracker.replace(id, newItem)) {
             System.out.println("The application has been successfully changed");
         } else {
             System.out.println("Application number not found");
@@ -34,7 +33,6 @@ public class StartUI {
 
     public static void deleteItem(Input input, Tracker tracker) {
         int id = Integer.valueOf(input.askStr("Enter the application number: "));
-        tracker.delete(id);
         if (tracker.delete(id)) {
             System.out.println("The application has been successfully deleted");
         } else {
