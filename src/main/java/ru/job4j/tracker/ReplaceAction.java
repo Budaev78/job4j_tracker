@@ -2,6 +2,12 @@ package ru.job4j.tracker;
 
 public class ReplaceAction implements UserAction{
 
+    private final Output out;
+
+    public ReplaceAction(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
         return "Edit item";
@@ -13,9 +19,9 @@ public class ReplaceAction implements UserAction{
         String name = input.askStr("Enter a new application name: ");
         Item newItem = new Item(name);
         if (tracker.replace(id, newItem)) {
-            System.out.println("The application has been successfully changed");
+            out.println("The application has been successfully changed");
         } else {
-            System.out.println("Application number not found");
+            out.println("Application number not found");
         }
         return true;
     }
