@@ -3,10 +3,11 @@ package ru.job4j.ex;
 public class Fact {
 
     public static void main(String[] args) {
+        System.out.println("Fact of 1 to 3: " + calc(3));
 
     }
 
-    public int calc(int n) {
+    public static int calc(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("n must be greater than 0.");
         }
