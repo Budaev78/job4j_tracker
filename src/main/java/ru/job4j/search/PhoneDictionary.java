@@ -10,12 +10,14 @@ public class PhoneDictionary {
         this.persons.add(person);
     }
 
-    public ArrayList<Person> find(String key) {
+    public ArrayList<Person> find(String key) throws IndexOutOfBoundsException{
         ArrayList<Person> result = new ArrayList<>();
         for (Person pers : persons) {
             if (pers.getName().contains(key) || pers.getSurname().contains(key) || pers.getPhone().contains(key) ||
                     pers.getAddress().contains(key)) {
                 result.add(pers);
+            } else {
+                throw new IndexOutOfBoundsException();
             }
         }
         return result;
