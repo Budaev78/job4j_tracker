@@ -36,12 +36,12 @@ public class PhoneDictionaryTest {
         assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
 
-    @Test (expected = IndexOutOfBoundsException.class)
+    @Test
     public void whenNoFind() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk"));
         ArrayList<Person> persons = phones.find("Moskow");
-        assertThat(persons.get(0).getSurname(), is("Arsentev"));
+        assertThat(persons.size(), is(0));
     }
 }

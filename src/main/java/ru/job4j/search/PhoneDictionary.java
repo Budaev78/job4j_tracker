@@ -16,8 +16,6 @@ public class PhoneDictionary {
             if (pers.getName().contains(key) || pers.getSurname().contains(key) || pers.getPhone().contains(key) ||
                     pers.getAddress().contains(key)) {
                 result.add(pers);
-            } else {
-                throw new IndexOutOfBoundsException();
             }
         }
         return result;
