@@ -58,4 +58,26 @@ public class StringCompareTest {
         );
         assertThat(rst, lessThan(0));
     }
+
+    @Test
+    public void whenCompareNonEmptyWithEmptyShouldBePositive(){
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "Petrov",
+                ""
+        );
+        assertThat(rst, greaterThan(0));
+    }
+
+    @Test
+    public void whenCompareEmptyWithNonEmptyShouldBeNegative(){
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "",
+                "Petrov"
+        );
+        assertThat(rst, lessThan(0));
+    }
+
+
 }
