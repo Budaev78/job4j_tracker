@@ -8,7 +8,7 @@ public class ItemSorter {
 
     public static void main(String[] args) {
         List<Item> items = Arrays.asList(
-                new Item(3,"car"),
+                new Item(3, "car"),
                 new Item(1, "fly"),
                 new Item(6, "train")
         );

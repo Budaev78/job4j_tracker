@@ -1,6 +1,6 @@
 package ru.job4j.inheritance;
 
-public class Architect extends Engineer{
+public class Architect extends Engineer {
 
     private String drawing;
 

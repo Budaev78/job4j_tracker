@@ -1,6 +1,6 @@
 package ru.job4j.inheritance;
 
-public class Ophthalmologist extends Doctor{
+public class Ophthalmologist extends Doctor {
 
     private String vision;
 

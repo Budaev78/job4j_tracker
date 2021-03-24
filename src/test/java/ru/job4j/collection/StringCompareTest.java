@@ -5,12 +5,12 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class StringCompareTest {
 
     @Test
-    public void whenStringsAreEqualThenZero () {
+    public void whenStringsAreEqualThenZero() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Ivanov",
@@ -20,7 +20,7 @@ public class StringCompareTest {
     }
 
     @Test
-    public void whenLeftLessThanRightResultShouldBeNegative () {
+    public void whenLeftLessThanRightResultShouldBeNegative() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Ivanov",
@@ -30,7 +30,7 @@ public class StringCompareTest {
     }
 
     @Test
-    public void whenLeftGreaterThanRightResultShouldBePositive () {
+    public void whenLeftGreaterThanRightResultShouldBePositive() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Petrov",
@@ -40,7 +40,7 @@ public class StringCompareTest {
     }
 
     @Test
-    public void secondCharOfLeftGreaterThanRightShouldBePositive(){
+    public void secondCharOfLeftGreaterThanRightShouldBePositive() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Petrov",
@@ -50,7 +50,7 @@ public class StringCompareTest {
     }
 
     @Test
-    public void secondCharOfLeftLessThanRightShouldBeNegative(){
+    public void secondCharOfLeftLessThanRightShouldBeNegative() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Patrova",
@@ -60,7 +60,7 @@ public class StringCompareTest {
     }
 
     @Test
-    public void whenCompareNonEmptyWithEmptyShouldBePositive(){
+    public void whenCompareNonEmptyWithEmptyShouldBePositive() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Petrov",
@@ -70,7 +70,7 @@ public class StringCompareTest {
     }
 
     @Test
-    public void whenCompareEmptyWithNonEmptyShouldBeNegative(){
+    public void whenCompareEmptyWithNonEmptyShouldBeNegative() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "",
@@ -78,6 +78,4 @@ public class StringCompareTest {
         );
         assertThat(rst, lessThan(0));
     }
-
-
 }

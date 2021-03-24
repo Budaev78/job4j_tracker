@@ -1,6 +1,5 @@
 package ru.job4j.io;
 
-import javax.sound.midi.Soundbank;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,7 +13,7 @@ public class MagicBall {
         switch (answer) {
             case 0 -> System.out.println("Да");
             case 1 -> System.out.println("Нет");
-            case 2, 3 -> System.out.println("Может быть");
+            default -> System.out.println("Может быть");
         }
     }
 }

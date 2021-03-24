@@ -13,7 +13,7 @@ public class UniqueText {
         /* for-each text -> hashSet.contains */
         HashSet<String> check = new HashSet<>(Arrays.asList(origin));
         for (String tex : text) {
-            if(!check.contains(tex)){
+            if (!check.contains(tex)) {
                 return false;
             }
         }

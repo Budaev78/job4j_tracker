@@ -1,6 +1,6 @@
 package ru.job4j.inheritance;
 
-public class Doctor extends Profession{
+public class Doctor extends Profession {
 
     private String heal;
 
@@ -9,10 +9,13 @@ public class Doctor extends Profession{
         this.heal = heal;
     }
 
+    public String getHeal() {
+        return heal;
+    }
 
-    public String getHeal() {return heal;}
-
-    public void setHeal(String heal) {this.heal = heal;}
+    public void setHeal(String heal) {
+        this.heal = heal;
+    }
 
     public void printInfo() {
         super.printInfo();

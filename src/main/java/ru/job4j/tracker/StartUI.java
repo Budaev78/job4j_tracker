@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
+
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class StartUI {
 
@@ -9,6 +9,21 @@ public class StartUI {
 
     public StartUI(Output out) {
         this.out = out;
+    }
+
+    public static void main(String[] args) {
+        Output output = new ConsoleOutput();
+        Input input = new ValidateInput(output, new ConsoleInput());
+        Tracker tracker = new Tracker();
+        List<UserAction> actions = new ArrayList<>();
+        actions.add(new CreateAction());
+        actions.add(new ShowAllAction(output));
+        actions.add(new ReplaceAction(output));
+        actions.add(new DeleteAction(output));
+        actions.add(new FindIdAction(output));
+        actions.add(new FindNameAction(output));
+        actions.add(new ExitAction());
+        new StartUI(output).init(input, tracker, actions);
     }
 
     public void init(Input input, Tracker tracker, List<UserAction> actions) {
@@ -30,21 +45,6 @@ public class StartUI {
         for (int index = 0; index < actions.size(); index++) {
             out.println(index + ". " + actions.get(index).name());
         }
-    }
-
-    public static void main(String[] args) {
-        Output output = new ConsoleOutput();
-        Input input = new ValidateInput(output, new ConsoleInput());
-        Tracker tracker = new Tracker();
-        List<UserAction> actions = new ArrayList<>();
-        actions.add(new CreateAction());
-        actions.add(new ShowAllAction(output));
-        actions.add(new ReplaceAction(output));
-        actions.add(new DeleteAction(output));
-        actions.add(new FindIdAction(output));
-        actions.add(new FindNameAction(output));
-        actions.add(new ExitAction());
-        new StartUI(output).init(input, tracker, actions);
     }
 }
 
