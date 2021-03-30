@@ -13,16 +13,16 @@ public class FreezeStr {
         char[] arRight = right.toCharArray();
         for (char c : arRight) {
             Integer value = leftMap.get(c);
+            if (!leftMap.containsKey(c)) {
+                return false;
+            }
             if (leftMap.containsKey(c) && value == 1) {
                 leftMap.remove(c);
             }
             if (leftMap.containsKey(c) && value > 1) {
                 leftMap.put(c, value - 1);
             }
-            if (leftMap.size() == 0) {
-                return true;
-            }
         }
-        return false;
+        return leftMap.size() == 0;
     }
 }
