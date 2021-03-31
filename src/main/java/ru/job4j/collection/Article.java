@@ -9,7 +9,7 @@ public class Article {
         String orig = origin.replaceAll("\\p{P}", "");
         String lin = line.replaceAll("\\p{P}", "");
         String[] originText = orig.split(" ");
-        String[] lineText = line.split(" ");
+        String[] lineText = lin.split(" ");
         HashSet<String> check = new HashSet<>(Arrays.asList(originText));
         for (String lineTex : lineText) {
             if (!check.contains(lineTex)) {
