@@ -6,20 +6,18 @@ public class Departments<result> {
 
     public static List<String> fillGaps(List<String> deps) {
         Set<String> tmp = new LinkedHashSet<>();
-        List<String> result = new ArrayList<>();
-        for (String value : deps) {
-            Collections.addAll(tmp, value.split("/"));
-        }
         String start = "";
-        for (String el : tmp) {
-            if (result.size() == 0) {
-                start = el;
-            } else {
-                start += "/" + el;
+        for (String value : deps) {
+            for (String el : value.split("/")) {
+                if (tmp.isEmpty() || start.equals(el)) {
+                    start = el;
+                } else {
+                    start += "/" + el;
+                }
+                tmp.add(start);
             }
-            result.add(start);
         }
-        return new ArrayList<>(result);
+        return new ArrayList<>(tmp);
     }
 
     public static void sortAsc(List<String> orgs) {
@@ -27,6 +25,6 @@ public class Departments<result> {
     }
 
     public static void sortDesc(List<String> orgs) {
-        orgs.sort(Collections.reverseOrder());
+        orgs.sort(new DepDescComp());
     }
 }
