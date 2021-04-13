@@ -1,6 +1,7 @@
 package ru.job4j.search;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class PhoneDictionary {
 
@@ -11,13 +12,12 @@ public class PhoneDictionary {
     }
 
     public ArrayList<Person> find(String key) throws IndexOutOfBoundsException {
+        Predicate<Person> combine = p -> p.getName().contains(key) || p.getPhone().contains(key)
+                || p.getSurname().contains(key) || p.getAddress().contains(key);
         ArrayList<Person> result = new ArrayList<>();
-        for (Person pers : persons) {
-            if (pers.getName().contains(key)
-                    || pers.getSurname().contains(key)
-                    || pers.getPhone().contains(key)
-                    || pers.getAddress().contains(key)) {
-                result.add(pers);
+        for (Person person : persons) {
+            if (combine.test(person)) {
+                result.add(person);
             }
         }
         return result;
