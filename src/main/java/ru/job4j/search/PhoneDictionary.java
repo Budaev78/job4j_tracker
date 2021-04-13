@@ -12,8 +12,11 @@ public class PhoneDictionary {
     }
 
     public ArrayList<Person> find(String key) throws IndexOutOfBoundsException {
-        Predicate<Person> combine = p -> p.getName().contains(key) || p.getPhone().contains(key)
-                || p.getSurname().contains(key) || p.getAddress().contains(key);
+        Predicate<Person> comb1 = p -> p.getName().contains(key);
+        Predicate<Person> comb2 = p -> p.getPhone().contains(key);
+        Predicate<Person> comb3 = p -> p.getSurname().contains(key);
+        Predicate<Person> comb4 = p -> p.getAddress().contains(key);
+        Predicate<Person> combine = comb1.or(comb2).or(comb3).or(comb4);
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
             if (combine.test(person)) {
