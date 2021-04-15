@@ -2,23 +2,18 @@ package ru.job4j.stream;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Profiles {
 
     public List<Address> collect(List<Profile> profiles) {
-        List<Address> addressList = new ArrayList<>();
-        for (Profile profile : profiles) {
-            addressList.add(profile.getAddress());
-        }
-        addressList.sort(new AddressSortByCity());
-        List<Profile> prof = new ArrayList<>();
-        for (Address address : addressList) {
-            prof.add(new Profile(address));
-        }
-        return prof.stream().distinct().map(
-                Profile::getAddress
-        ).collect(Collectors.toList());
+        return profiles
+                .stream()
+                .map(Profile::getAddress)
+                .sorted(Comparator.comparing(Address::getCity))
+                .distinct()
+                .collect(Collectors.toList());
     }
 }
