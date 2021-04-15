@@ -17,7 +17,7 @@ public class Profiles {
         for (Address address : addressList) {
             prof.add(new Profile(address));
         }
-        return prof.stream().map(
+        return prof.stream().distinct().map(
                 Profile::getAddress
         ).collect(Collectors.toList());
     }

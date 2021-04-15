@@ -21,7 +21,7 @@ public class ProfilesTest {
                 new Profile(adr3), new Profile(adr4), new Profile(adr5));
         Profiles prof = new Profiles();
         List<Address> result = prof.collect(profiles);
-        List<Address> expected = Arrays.asList(adr4, adr1, adr2, adr3, adr5);
+        List<Address> expected = Arrays.asList(adr4, adr1, adr3);
         assertThat(result, Matchers.is(expected));
     }
 }
