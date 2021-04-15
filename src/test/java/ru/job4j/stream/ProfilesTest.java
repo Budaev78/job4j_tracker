@@ -3,7 +3,6 @@ package ru.job4j.stream;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,12 +17,8 @@ public class ProfilesTest {
         Address adr3 = new Address("SPb", "Popova", 24, 15);
         Address adr4 = new Address("Kazan", "Novgorodskaya", 2, 102);
         Address adr5 = new Address("SPb", "Chkalovskiy", 35, 3);
-        List<Address> addressList = Arrays.asList(adr1, adr2, adr3, adr4, adr5);
-        addressList.sort(new AddressSortByCity());
-        List<Profile> profiles = new ArrayList<>();
-        for (Address address : addressList) {
-            profiles.add(new Profile(address));
-        }
+        List<Profile> profiles = Arrays.asList(new Profile(adr1), new Profile(adr2),
+                new Profile(adr3), new Profile(adr4), new Profile(adr5));
         Profiles prof = new Profiles();
         List<Address> result = prof.collect(profiles);
         List<Address> expected = Arrays.asList(adr4, adr1, adr2, adr3, adr5);
