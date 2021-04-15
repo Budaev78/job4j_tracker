@@ -48,16 +48,10 @@ public class BankService {
      * @return возвращает клиента у которого этот паспорт
      */
     public Optional<User> findByPassport(String passport) {
-        Optional<User> rsl = users.keySet()
+        return users.keySet()
                 .stream()
                 .filter(s -> s.getPassport().equals(passport))
                 .findFirst();
-        if (rsl.isPresent()) {
-            return rsl;
-        } else {
-            System.out.println("Element not found");
-        }
-        return rsl;
     }
 
     /**
@@ -71,19 +65,10 @@ public class BankService {
      */
     public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<User> user = findByPassport(passport);
-        Optional<Account> rsl = Optional.empty();
-        if (user.isPresent()) {
-            rsl = users.get(user.get())
+        return user.flatMap(value -> users.get(value)
                     .stream()
                     .filter(s -> s.getRequisite().equals(requisite))
-                    .findFirst();
-            if (rsl.isPresent()) {
-                return rsl;
-            } else {
-                System.out.println("Element not found");
-            }
-        }
-        return rsl;
+                    .findFirst());
     }
 
     /**
