@@ -13,9 +13,7 @@ public class School {
 
     public Map<String, Student> collect(List<Student> students) {
         return students.stream().collect(Collectors.toMap(Student::getSurname, e -> e,
-                (k, e) -> {
-                    return k.equals(e) ? k : e;
-                }
+                (k, e) -> k
         ));
     }
 }
